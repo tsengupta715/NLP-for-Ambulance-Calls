@@ -1,0 +1,8 @@
+HospitalSummary = raw_input("Enter Summary: ")
+EMS = "EMS"
+EMSDetected = HospitalSummary.find(EMS)
+
+if EMSDetected > -1:
+    print ("EMS needed")
+else:
+    print ("EMS not needed")
