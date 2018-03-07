@@ -1,10 +1,14 @@
 
+import csv
+with open('911.csv', newline='') as hospital_summary:
+    hospital_reader = csv.reader(hospital_summary)
+    for row in hospital_reader:
 
-hospital_summary = input("Enter Summary: ")
-EMS = "EMS"
-ems_detected = hospital_summary.find(EMS)
+        EMS = "EMS"
+        row_string = ' '.join(row)
 
-if ems_detected > -1:
-    print("EMS needed")
-else:
-    print("EMS not needed")
+        if EMS in row_string:
+            print("EMS needed")
+        else:
+            print("EMS not needed")
+
