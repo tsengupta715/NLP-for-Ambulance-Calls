@@ -9,12 +9,10 @@ with open('911.csv', newline='') as hospital_summary:
 
         #combines the list of strings in each row to one large string
         EMS = "EMS"
-
         for call in row:
             if EMS in call:
                 print("EMS needed")
             else:
                 print("EMS not needed")
-       
-
+    
 
