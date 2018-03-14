@@ -14,5 +14,5 @@ with open('911.csv', newline='') as hospital_summary:
                 print("EMS needed")
             else:
                 print("EMS not needed")
-    
+
 
