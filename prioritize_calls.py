@@ -13,7 +13,17 @@ with open('key_words.csv', 'rt') as key_words:
         priority_dict = {}
         priority_dict.update({symptoms:priority})
 
-        print(priority_dict)
+
+#imports csv module and accesses file as summary_hospital
+with open('911.csv', newline='') as summary_hospital:
+    summary_reader = csv.reader(summary_hospital)
+
+    #parses each row of data and combines into one string
+    for row in summary_reader:
+        joined_call = ''.join(row)
+        #checks if the string is in the symptoms and returns the priority if it is
+        if symptoms.upper() in joined_call.upper():
+            print(priority)
 
 
 
