@@ -26,6 +26,7 @@ with open('911.csv', newline='') as summary_hospital:
 
         #checks if the string is in the symptoms and returns the priority if it is
         if symptoms.upper() in joined_call.upper():
+            print(row)
             print(priority)
 
 
