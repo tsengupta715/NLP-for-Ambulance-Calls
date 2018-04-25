@@ -1,3 +1,4 @@
+
 from gmplot import gmplot
 
 # Place map
@@ -5,25 +6,44 @@ gmap = gmplot.GoogleMapPlotter(40.2290, -75.3879, 13)
 
 import csv
 #opens 911 calls as coordinates
-with open('911.csv', 'rt') as ambulance_calls:
+with open('dummy.csv', 'rt') as ambulance_calls:
     csvreader = csv.reader(ambulance_calls)
     header = next(csvreader)
-    coordinates_list = []
+
     #for each row, assigns lat as first row and lng as second
-    counter = 0
     for row in ambulance_calls.readlines():
-        if counter < 10:
-            coordinates = row.split(',')
-            lat = float(coordinates[0])
-            lng = float(coordinates[1])
 
-            #appends coordinates to the empty list
-            coordinates_list.append((lat,lng))
-            counter += 1
+        coordinates = row.split(',')
+        lat = float(coordinates[0])
+        lng = float(coordinates[1])
+        if coordinates[-1].strip() is 'A':
+            # Marker
+            a_priority_lat, a_priority_lng = lat,lng
+            gmap.marker(a_priority_lat, a_priority_lng, 'limegreen')
 
-# Scatter points
-ambulance_lat, ambulance_lng = zip(*coordinates_list)
-gmap.scatter(ambulance_lats, ambulance_lngs, '#3B0B39', size=40, marker=False)
+        elif coordinates[-1].strip() is 'B':
+            # Marker
+            b_priority_lat, b_priority_lng = lat,lng
+            gmap.marker(b_priority_lat, b_priority_lng, 'yellow')
+
+        elif coordinates[-1].strip() is 'C':
+            # Marker
+            c_priority_lat, c_priority_lng = lat,lng
+            gmap.marker(c_priority_lat, c_priority_lng, 'gold')
+
+        elif coordinates[-1].strip() is 'D':
+            # Marker
+            d_priority_lat, d_priority_lng = lat,lng
+            gmap.marker(d_priority_lat, d_priority_lng, 'darkorange')
+
+        elif coordinates[-1].strip() is 'E':
+            # Marker
+            e_priority_lat, e_priority_lng = lat,lng
+            gmap.marker(e_priority_lat, e_priority_lng, 'red')
+
+        else:
+            return
+
 
 # Draw
 gmap.draw("my_map.html")
