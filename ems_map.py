@@ -1,8 +1,9 @@
 
 from gmplot import gmplot
 
-# Place map
+# Place map (try both ways below)
 gmap = gmplot.GoogleMapPlotter(40.2290, -75.3879, 13)
+gmap = gmplot.GoogleMapPlotter.from_geocode("Montgomery County, Pennsylvania")
 
 import csv
 #opens 911 calls as coordinates
@@ -11,7 +12,7 @@ with open('dummy.csv', 'rt') as ambulance_calls:
     header = next(csvreader)
 
     #for each row, assigns lat as first row and lng as second
-    for row in ambulance_calls.readlines():
+    for row in ambulance_calls:
 
         coordinates = row.split(',')
         lat = float(coordinates[0])
@@ -42,7 +43,7 @@ with open('dummy.csv', 'rt') as ambulance_calls:
             gmap.marker(e_priority_lat, e_priority_lng, 'red')
 
         else:
-            return
+            print('no')
 
 
 # Draw
