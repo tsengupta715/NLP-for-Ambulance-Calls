@@ -6,16 +6,16 @@ First, the program will input an ambulance call in the form of a csv (comma sepa
 https://data.cincinnati-oh.gov/Safer-Streets/Cincinnati-Fire-Incidents-CAD-including-EMS-ALS-BL/vnsz-a3wp/data
 https://data.marincounty.org/Public-Health/Emergency-Medical-Service-Incidents/swth-izpe
 Here is an example of what such a data set would look like. 
-! [data set] (images/screenshot.png)
+![data set](images/screenshot.png)
 
 Then, the program runs the data set through a word2vec program which finds related key words. This is what that output should be similar to. 
-! [word2vec output] (NLP-for-Ambulance-Calls/images/Screen Shot 2018-05-03 at 8.25.30 PM.png)
-! [word2vec output] (NLP-for-Ambulance-Calls/images/Screen Shot 2018-05-03 at 8.25.40 PM.png)
-! [word2vec output] (NLP-for-Ambulance-Calls/images/Screen Shot 2018-05-03 at 8.25.48 PM.png)
+![word2vec output](images/Screen Shot 2018-05-03 at 8.25.30 PM.png)
+![word2vec output](images/Screen Shot 2018-05-03 at 8.25.40 PM.png)
+![word2vec output](images/Screen Shot 2018-05-03 at 8.25.48 PM.png)
 
 The program then runs this through a priority algorithm which ranks the calls according to Medical Priority Dispatch Codes, which can be located here: https://wiki.radioreference.com/index.php/Priority_Dispatch_Codes
 
 After ranking, using gmplot, which can be located here: https://github.com/vgm64/gmplot , the program maps the priorities to a map, using a different color for each priority. 
 
-! [map output] (NLP-for-Ambulance-Calls/images/map_example.png)
+![map output](images/map_example.png)
 
